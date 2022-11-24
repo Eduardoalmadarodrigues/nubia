@@ -1,24 +1,18 @@
 import logo from './logo.svg';
 import './App.css';
+import UserContext from './Contexts/UserContext';
+import ReactDOM from 'react-dom/client';
+import {createBrowserRouter , Route, RouterProvider} from 'react-router-dom';
+import Login from './Pages/Login';
+import Loja from './Pages/Loja'
+
+const router = createBrowserRouter([{path: '/', element: <Loja/>},{path: 'login', element:<Login/>}])
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <UserContext>
+      <RouterProvider router={router}/>
+    </UserContext>
   );
 }
 
