@@ -20,11 +20,11 @@ export const FormWrapper = styled.div`
 `;
 
 export const EmailInput = styled.input`
-    width: 70px;
+    width: 150px;
 `;
 
 export const PasswordInput = styled.input`
-    width: 70px;
+    width: 150px;
 `
 
 export const SubmitButton = styled.button`

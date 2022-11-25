@@ -1,9 +1,9 @@
 import React , {createContext, useReducer} from 'react';
 import { initialState , reducer } from '../Reducers/UserReducer';
 
-const UserContext = createContext();
+export const UserContext = createContext(initialState);
 
-export default ({children}) => {
+export const UserContextWrapper =  ({children}) => {
     const [state , dispatch] = useReducer(reducer, initialState)
     return(
         <UserContext.Provider value={{state,dispatch}}>

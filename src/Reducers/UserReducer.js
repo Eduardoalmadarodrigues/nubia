@@ -1,12 +1,11 @@
 export const initialState = {
-    user: ''
+    user: 'asd'
 }
 
 export function reducer(state , action){
-    switch(action){
+    switch(action.type){
         case 'changeUser':
-            return {...state, user: action.user}
-            break;
+            return {...state, user: action.text}
         default: return state;
     }
 }

@@ -1,8 +1,5 @@
-import logo from './logo.svg';
-import './App.css';
-import UserContext from './Contexts/UserContext';
-import ReactDOM from 'react-dom/client';
-import {createBrowserRouter , Route, RouterProvider} from 'react-router-dom';
+import { UserContextWrapper } from './Contexts/UserContext';
+import { createBrowserRouter , RouterProvider } from 'react-router-dom';
 import Login from './Pages/Login';
 import Loja from './Pages/Loja'
 
@@ -10,9 +7,9 @@ const router = createBrowserRouter([{path: '/', element: <Loja/>},{path: 'login'
 
 function App() {
   return (
-    <UserContext>
+    <UserContextWrapper>
       <RouterProvider router={router}/>
-    </UserContext>
+    </UserContextWrapper>
   );
 }
 
