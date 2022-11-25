@@ -1,5 +1,7 @@
+const storageUser = window.localStorage.getItem('user');
+
 export const initialState = {
-    user: 'asd'
+    user: storageUser ? storageUser : ''
 }
 
 export function reducer(state , action){
