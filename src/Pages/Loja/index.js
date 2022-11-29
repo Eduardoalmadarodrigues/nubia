@@ -1,4 +1,4 @@
-import React , { useContext , useState } from 'react';
+import React , { useContext , useState ,useEffect} from 'react';
 import {Wrapper,Header,Logo, NavLink , ProductsWrapper} from './style';
 import { UserContext } from '../../Contexts/UserContext';
 import { ProductList } from '../../Components/ProductList/ProductList';
@@ -8,8 +8,17 @@ import {ProductSmallView} from '../../Components/ProductSmallView/ProductSmallVi
 
 export default function Loja() {
     const { userState , userDispatch } = useContext(UserContext);
-    const [listaProdutos] = useState(api);
+    const [listaProdutos, setListaProdutos ] = useState(api);
     const [productsListVisibility, setProductsListVisibility] = useState(false);
+
+    async function getListaProdutos(){
+        const response = await fetch('https://api-next-serverless.vercel.app/api/products',{method: 'GET'});
+        const json = await response.json();
+        return json;
+    }
+
+    useEffect(()=>console.log((getListaProdutos())));
+
     return (
     <Wrapper>
         <Header>
