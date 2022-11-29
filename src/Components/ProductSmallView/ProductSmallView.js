@@ -8,6 +8,7 @@ export function ProductSmallView(props){
             <ProductName>{props.product.name}</ProductName>
         <ProductImage src={props.product.image}></ProductImage>
         <AddToCartButton product={props.product}/>
+        <h1>{props.product.price}R$</h1>
     </ProductWrapper>
     );
 }

@@ -45,8 +45,10 @@ export default function Loja() {
         <Link to="/login">
           <NavLink>Login</NavLink>
         </Link>
-        <h1>{userState.user}</h1>
-        <div>{userState.carrinho}</div>
+        <Link to="/carrinho">
+          <NavLink>Carrinho</NavLink>
+        </Link>
+        <h1>User: {userState.user}</h1>
         <button onClick={() => userDispatch({ type: "reset" })}>Reset</button>
         <Link to="/login">
           <button onClick={() => userDispatch({ type: "logOut" })}>
