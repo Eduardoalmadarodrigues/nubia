@@ -4,9 +4,9 @@ import { initialState , reducer } from '../Reducers/UserReducer';
 export const UserContext = createContext();
 
 export const UserContextWrapper =  ({children}) => {
-    const [state , dispatch] = useReducer(reducer, initialState)
+    const [userState , userDispatch] = useReducer(reducer, initialState)
     return(
-        <UserContext.Provider value={{state,dispatch}}>
+        <UserContext.Provider value={{userState,userDispatch}}>
             {children}
         </UserContext.Provider>
     );

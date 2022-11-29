@@ -21,12 +21,15 @@ export const FormWrapper = styled.div`
 
 export const EmailInput = styled.input`
     width: 150px;
+    height: 20px;
 `;
 
 export const PasswordInput = styled.input`
     width: 150px;
+    height: 20px;
 `
 
 export const SubmitButton = styled.button`
-    width: 50px;
+    width: 150px;
+    height: 40px;
 `;

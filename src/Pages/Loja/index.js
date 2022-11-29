@@ -1,28 +1,27 @@
 import React , { useContext , useState } from 'react';
 import {Wrapper,Header,Logo, NavLink} from './style';
-import {Link} from 'react-router-dom';
 import { UserContext } from '../../Contexts/UserContext';
 import { ProductList } from '../../Components/ProductList/ProductList';
+import {api} from '../../api';
+import { Link } from 'react-router-dom';
 
 
 export default function Loja() {
-    const { state } = useContext(UserContext);
-    const [isVisible,setIsVisible] = useState(false)
-    
+    const { userState , userDispatch } = useContext(UserContext);
+    const [listaProdutos] = useState(api);
+    const [productsListVisibility, setProductsListVisibility] = useState(false);
     return (
     <Wrapper>
         <Header>
             <Logo/>
-            <NavLink onClick={()=>{window.location.href = '/'}}>HOME</NavLink>
-            <NavLink onMouseEnter={()=>setIsVisible(true)} onMouseOut={()=>setIsVisible(false)} onClick={()=>{window.location.href = '/login'}}>Login</NavLink>
-            <NavLink>HOME</NavLink>
-            <NavLink>HOME</NavLink>
-            <h1>{state.user}</h1>
+            <NavLink onMouseLeave={()=>setProductsListVisibility(false)} onMouseEnter={()=>setProductsListVisibility(true)}>Products<ProductList onMouseLeave={()=>setProductsListVisibility(false)}  isVisible={productsListVisibility} products={listaProdutos}></ProductList></NavLink>
+            <Link to='/'><NavLink>HOME</NavLink></Link>
+            <Link to='/login'><NavLink>Login</NavLink></Link>
+            <h1>{userState.user}</h1>
+            <div>{userState.carrinho}</div>
+            <button onClick={()=>userDispatch({type:'reset'})}>Reset</button>
+            <Link to='/login'><button onClick={()=>userDispatch({type:'logOut'})}>LogOut</button></Link>
         </Header>
-        <ProductList isVisible={isVisible} products={['agua','cachaça','drogas']}></ProductList>
-        <button onClick={()=>{console.log(state.user)}}>log</button>
-        <ProductList products={['agua','cachaça','drogas']}></ProductList>
-        <Link to='/login'>Login</Link>
     </Wrapper>
     )
 }
