@@ -1,9 +1,10 @@
 import { useContext } from "react";
 import { UserContext } from "../../Contexts/UserContext";
+import { AddButton } from './style'
 
 export function AddToCartButton(props){
     const {userDispatch} = useContext(UserContext);
     return(
-        <button onClick={()=>userDispatch({type : 'addToCart' , toCart: props.product.name})}>ADDtoCart</button>
+        <AddButton onClick={()=>userDispatch({type : 'addToCart' , toCart: props.product.name})}>ADDtoCart</AddButton>
     );
 };

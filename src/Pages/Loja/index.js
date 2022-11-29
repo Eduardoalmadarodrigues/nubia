@@ -1,40 +1,67 @@
-import React , { useContext , useState ,useEffect} from 'react';
-import {Wrapper,Header,Logo, NavLink , ProductsWrapper} from './style';
-import { UserContext } from '../../Contexts/UserContext';
-import { ProductList } from '../../Components/ProductList/ProductList';
-import {api} from '../../api';
-import { Link } from 'react-router-dom';
-import {ProductSmallView} from '../../Components/ProductSmallView/ProductSmallView'
+import React, { useContext, useState, useEffect } from "react";
+import { Wrapper, Header, Logo, NavLink, ProductsWrapper } from "./style";
+import { UserContext } from "../../Contexts/UserContext";
+import { ProductList } from "../../Components/ProductList/ProductList";
+import { Link } from "react-router-dom";
+import { ProductSmallView } from "../../Components/ProductSmallView/ProductSmallView";
 
 export default function Loja() {
-    const { userState , userDispatch } = useContext(UserContext);
-    const [listaProdutos, setListaProdutos ] = useState(api);
-    const [productsListVisibility, setProductsListVisibility] = useState(false);
+  const { userState, userDispatch } = useContext(UserContext);
+  const [listaProdutos, setListaProdutos] = useState([{}]);
+  const [productsListVisibility, setProductsListVisibility] = useState(false);
 
-    async function getListaProdutos(){
-        const response = await fetch('https://api-next-serverless.vercel.app/api/products',{method: 'GET'});
-        const json = await response.json();
-        return json;
-    }
+  async function getListaProdutos() {
+    const response = await fetch(
+      "https://api-next-serverless.vercel.app/api/products",
+      { method: "GET" }
+    );
+    const json = await response.json();
+    return json;
+  }
 
-    useEffect(()=>console.log((getListaProdutos())));
+  useEffect(() => {
+    getListaProdutos().then((data)=>setListaProdutos(data))
+    
+}); 
 
-    return (
+  return (
     <Wrapper>
-        <Header>
-            <Logo/>
-            <NavLink onMouseLeave={()=>setProductsListVisibility(false)} onMouseEnter={()=>setProductsListVisibility(true)}>Products<ProductList onMouseLeave={()=>setProductsListVisibility(false)}  isVisible={productsListVisibility} products={listaProdutos}></ProductList></NavLink>
-            <Link to='/'><NavLink>HOME</NavLink></Link>
-            <Link to='/login'><NavLink>Login</NavLink></Link>
-            <h1>{userState.user}</h1>
-            <div>{userState.carrinho}</div>
-            <button onClick={()=>userDispatch({type:'reset'})}>Reset</button>
-            <Link to='/login'><button onClick={()=>userDispatch({type:'logOut'})}>LogOut</button></Link>
-            <p>carrinho: {userState.carrinho.length}</p>
-        </Header>
-        <ProductsWrapper>
-        {listaProdutos.map((product , index)=><ProductSmallView product={product} key={index}/>)} 
-        </ProductsWrapper>       
+      <Header>
+        <Logo />
+        <NavLink
+          onMouseLeave={() => setProductsListVisibility(false)}
+          onMouseEnter={() => setProductsListVisibility(true)}
+        >
+          Products
+          <ProductList
+            onMouseLeave={() => setProductsListVisibility(false)}
+            isVisible={productsListVisibility}
+            products={listaProdutos}
+          ></ProductList>
+        </NavLink>
+        <Link to="/">
+          <NavLink>HOME</NavLink>
+        </Link>
+        <Link to="/login">
+          <NavLink>Login</NavLink>
+        </Link>
+        <h1>{userState.user}</h1>
+        <div>{userState.carrinho}</div>
+        <button onClick={() => userDispatch({ type: "reset" })}>Reset</button>
+        <Link to="/login">
+          <button onClick={() => userDispatch({ type: "logOut" })}>
+            LogOut
+          </button>
+        </Link>
+        <p>carrinho: {userState.carrinho.length}</p>
+      </Header>
+      <ProductsWrapper>
+        { (listaProdutos) ? listaProdutos.map((product, index) => (
+          <ProductSmallView product={product} key={index} />
+        )) : <></> }
+      </ProductsWrapper>
     </Wrapper>
-    )
+  );
 }
+
+

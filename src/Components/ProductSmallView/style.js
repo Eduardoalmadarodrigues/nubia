@@ -6,10 +6,14 @@ export const ProductWrapper = styled.div`
     min-width: 500px;
     border: 1px solid black ;
     margin: 50px ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 `;
 
 export const ProductImage = styled.img`
-    width: 100px ;
-    height: 100px ;`
+    width: 400px ;
+    height: 400px ;`
 
-export const ProductName = styled.p``;
+export const ProductName = styled.h1``;
