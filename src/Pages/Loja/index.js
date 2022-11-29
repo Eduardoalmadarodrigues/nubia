@@ -1,10 +1,10 @@
 import React , { useContext , useState } from 'react';
-import {Wrapper,Header,Logo, NavLink} from './style';
+import {Wrapper,Header,Logo, NavLink , ProductsWrapper} from './style';
 import { UserContext } from '../../Contexts/UserContext';
 import { ProductList } from '../../Components/ProductList/ProductList';
 import {api} from '../../api';
 import { Link } from 'react-router-dom';
-
+import {ProductSmallView} from '../../Components/ProductSmallView/ProductSmallView'
 
 export default function Loja() {
     const { userState , userDispatch } = useContext(UserContext);
@@ -21,7 +21,11 @@ export default function Loja() {
             <div>{userState.carrinho}</div>
             <button onClick={()=>userDispatch({type:'reset'})}>Reset</button>
             <Link to='/login'><button onClick={()=>userDispatch({type:'logOut'})}>LogOut</button></Link>
+            <p>carrinho: {userState.carrinho.length}</p>
         </Header>
+        <ProductsWrapper>
+        {listaProdutos.map((product , index)=><ProductSmallView product={product} key={index}/>)} 
+        </ProductsWrapper>       
     </Wrapper>
     )
 }

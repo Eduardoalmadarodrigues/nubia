@@ -2,15 +2,14 @@ import styled from 'styled-components';
 import { ReactComponent as Icon } from "../../Assets/logo.svg";
 
 export const Wrapper = styled.div`
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
     background-color: antiquewhite;
 `
 
 export const Header = styled.div`
     display: flex ;
     align-items: center ;
-    width: 100vw ;
+    width: 100% ;
     height: 120px ;
     background-color: lightgrey;
 `;
@@ -23,4 +22,12 @@ height: 100px ;
 export const NavLink = styled.div`
     font-size: 25px;
     padding: 15px;
+`;
+
+export const ProductsWrapper = styled.div`
+    max-width: 100%;
+    display: flex;
+    overflow: auto;
+    flex-wrap: wrap ;
+    justify-content: center ;
 `;
