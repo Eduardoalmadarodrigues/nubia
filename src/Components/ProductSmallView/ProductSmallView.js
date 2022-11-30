@@ -1,14 +1,16 @@
-import {ProductWrapper , ProductImage, ProductName} from './style';
+import {ProductWrapper , ProductImage, ProductName, ProductOldPrice, ProductNowPrice, PaymentWays} from './style';
 import React from 'react';
 import { AddToCartButton } from '../AddToCartButton/AddToCartButton';
 
 export function ProductSmallView(props){
     return (
-          <ProductWrapper>
+        <ProductWrapper>
+            <ProductImage src={props.product.image}></ProductImage>
             <ProductName>{props.product.name}</ProductName>
-        <ProductImage src={props.product.image}></ProductImage>
-        <AddToCartButton product={props.product}/>
-        <h1>{props.product.price}R$</h1>
-    </ProductWrapper>
+            <ProductOldPrice>R$ {props.product.oldPrice}</ProductOldPrice>
+            <ProductNowPrice>R$ {props.product.price}</ProductNowPrice>
+            <PaymentWays>à vista com Pix </PaymentWays>
+            <AddToCartButton product={props.product}/>
+        </ProductWrapper>
     );
 }
