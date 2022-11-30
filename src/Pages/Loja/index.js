@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from "react";
-import { Wrapper, Header, Logo, NavLink, ProductsWrapper } from "./style";
+import { Wrapper, Header, Logo, NavLink, ProductsWrapper, UserButtom, HomeButtom, MenuButton } from "./style";
 import { UserContext } from "../../Contexts/UserContext";
 import { ProductList } from "../../Components/ProductList/ProductList";
 import { Link } from "react-router-dom";
@@ -27,6 +27,7 @@ export default function Loja() {
   return (
     <Wrapper>
       <Header>
+      <MenuButton/>
         <Logo />
         <NavLink
           onMouseLeave={() => setProductsListVisibility(false)}
@@ -40,10 +41,10 @@ export default function Loja() {
           ></ProductList>
         </NavLink>
         <Link to="/">
-          <NavLink>HOME</NavLink>
+          <HomeButtom/>
         </Link>
         <Link to="/login">
-          <NavLink>Login</NavLink>
+          <UserButtom/>
         </Link>
         <Link to="/carrinho">
           <NavLink>Carrinho</NavLink>
