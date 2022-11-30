@@ -34,3 +34,37 @@ export const ProductsWrapper = styled.div`
     flex-wrap: wrap ;
     justify-content: center ;
 `;
+
+export const HomeButtom = styled(Home)`
+    width: 30px;
+    height: 25px;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    font-size: medium;
+    padding: 3px;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex: 0 0 0px;
+    align-self: flex-start;
+`;
+ 
+export const UserButtom = styled(User)`
+    width: 30px;
+    height: 25px;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    font-size: medium;
+    padding: 3px;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex: 0 0 0px;
+    align-self: flex-start;
+`;
