@@ -35,6 +35,11 @@ export const ProductsWrapper = styled.div`
     justify-content: center ;
 `;
 
+export const MenuButton = styled(Menu)`
+    padding: 30px;
+    width: 40px;
+    height: 40px ;
+    `;
 export const HomeButtom = styled(Home)`
     width: 30px;
     height: 25px;
