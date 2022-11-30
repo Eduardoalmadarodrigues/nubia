@@ -1,5 +1,8 @@
 import styled from 'styled-components';
 import { ReactComponent as Icon } from "../../Assets/logo.svg";
+import { ReactComponent as Menu } from "../../Assets/menu_buttom.svg";
+import { ReactComponent as Home } from "../../Assets/home.svg";
+import { ReactComponent as User } from "../../Assets/user.svg";
 
 export const Wrapper = styled.div`
     width: 100%;
