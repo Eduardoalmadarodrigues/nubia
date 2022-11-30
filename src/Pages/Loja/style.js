@@ -3,7 +3,7 @@ import { ReactComponent as Icon } from "../../Assets/logo.svg";
 
 export const Wrapper = styled.div`
     width: 100%;
-    background-color: antiquewhite;
+    background-color: #161b22; 
 `
 
 export const Header = styled.div`
@@ -11,7 +11,7 @@ export const Header = styled.div`
     align-items: center ;
     width: 100% ;
     height: 120px ;
-    background-color: lightgrey;
+    background-color: #0d1117;
 `;
 
 export const Logo = styled(Icon)`
