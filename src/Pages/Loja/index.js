@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { ProductSmallView } from "../../Components/ProductSmallView/ProductSmallView";
 
 export default function Loja() {
-  const { userState, userDispatch } = useContext(UserContext);
+  const { userState } = useContext(UserContext);
   const [listaProdutos, setListaProdutos] = useState([{}]);
   const [productsListVisibility, setProductsListVisibility] = useState(false);
 
@@ -47,11 +47,6 @@ export default function Loja() {
           <UserButtom/>
         </Link>
         <h1>User: {userState.user}</h1>
-         <button onClick={() => userDispatch({ type: "reset" })}>Reset</button>
-        <Link to="/login">
-          <button onClick={() => userDispatch({ type: "logOut" })}>
-            LogOut
-          </button>
         </Link>
         <p>carrinho: {userState.carrinho.length}</p>
          <Link>
