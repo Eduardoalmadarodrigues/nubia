@@ -46,9 +46,7 @@ export default function Loja() {
         <Link to="/login">
           <UserButtom/>
         </Link>
-        <h1>User: {userState.user}</h1>
-        <p>carrinho: {userState.carrinho.length}</p>
-         <Link>
+         <Link to="./carrinho">
           <CartButtom/>
          </Link>
       </Header>
