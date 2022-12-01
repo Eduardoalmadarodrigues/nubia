@@ -16,7 +16,7 @@ export const FormWrapper = styled.div`
     align-items: center;
     justify-content: center;
     width: 300px;
-    height: 400px;
+    height: 500px;
     border-radius: 5px;
     background-color: #161b22;
 `;
