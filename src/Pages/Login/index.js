@@ -16,7 +16,7 @@ export default function Login(){
                 changeEmailInput(e.target.value);
             }} placeholder="Email"/>
             <PasswordInput placeholder="Senha"/>
-            <Link to="/"><SubmitButton onClick={()=>{userDispatch({type:'changeUser',text:emailInput});}}>ENTRAR</SubmitButton></Link>
+            <Link to="/"><SubmitButton onClick={()=>{userDispatch({type:'changeUser',text:emailInput});}}>Entrar</SubmitButton></Link>
         </FormWrapper>        
     </Wrapper> 
     )
