@@ -47,7 +47,6 @@ export default function Loja() {
           <UserButtom/>
         </Link>
         <h1>User: {userState.user}</h1>
-        </Link>
         <p>carrinho: {userState.carrinho.length}</p>
          <Link>
           <CartButtom/>
