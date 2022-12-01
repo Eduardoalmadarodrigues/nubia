@@ -1,5 +1,5 @@
 import React , {useContext, useState} from 'react';
-import { EmailInput, FormWrapper, PasswordInput, SubmitButton, Wrapper } from './style';
+import { EmailInput, FormWrapper, PasswordInput, SubmitButton, Wrapper, Logo } from './style';
 import { UserContext } from '../../Contexts/UserContext';
 import {Link} from 'react-router-dom'
 
@@ -10,6 +10,7 @@ export default function Login(){
     return (
     <Wrapper>
         <FormWrapper>
+            <Logo></Logo>
             <EmailInput value={emailInput} onChange={(e)=>{
                 changeEmailInput(e.target.value);
             }} placeholder="Email"/>
