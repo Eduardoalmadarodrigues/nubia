@@ -50,13 +50,13 @@ export default function Loja() {
           <NavLink>Carrinho</NavLink>
         </Link>
         <h1>User: {userState.user}</h1>
-        <button onClick={() => userDispatch({ type: "reset" })}>Reset</button>
+        /* <button onClick={() => userDispatch({ type: "reset" })}>Reset</button>
         <Link to="/login">
           <button onClick={() => userDispatch({ type: "logOut" })}>
             LogOut
           </button>
         </Link>
-        <p>carrinho: {userState.carrinho.length}</p>
+        <p>carrinho: {userState.carrinho.length}</p> */
          <Link>
           <CartButtom/>
          </Link>
