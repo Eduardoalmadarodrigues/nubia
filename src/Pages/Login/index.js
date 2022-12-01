@@ -10,7 +10,8 @@ export default function Login(){
     return (
     <Wrapper>
         <FormWrapper>
-            <Logo></Logo>
+            <Logo/>
+            <h2 style={{color:'white'}}>Login</h2>
             <EmailInput value={emailInput} onChange={(e)=>{
                 changeEmailInput(e.target.value);
             }} placeholder="Email"/>
