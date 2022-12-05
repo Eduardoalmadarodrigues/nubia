@@ -119,15 +119,26 @@ export const CartButtom = styled(Cart)` //COMMIT
     width: 30px;
     height: 25px;
     border-radius: 5px;
-    border: none;
-    color: white;
-    font-size: medium;
-    padding: 3px;
-    text-align: center;
-    display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    flex: 0 0 0px;
-    align-self: center;
+`;
+export const CartButtomCounter = styled.div` //COMMIT
+    position: absolute;
+    top: -8px;
+    right: -4px;
+    user-select: none;
+    background: yellow;
+    text-align: center;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%; 
+    font-size: 0.6rem;
+`;
+
+export const CartButtomContainer = styled.div` //COMMIT
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 `;
