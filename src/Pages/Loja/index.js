@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from "react";
-import { Wrapper, Header, Logo, NavLink, ProductsWrapper, SearchInput,UserButtom, HomeButtom, MenuButton, CartButtom } from "./style";
+import { Wrapper, Header, Logo, NavLink, ProductsWrapper, SearchInput,UserButtom, HomeButtom, MenuButton, CartButtom, CartButtomContainer, CartButtomCounter } from "./style";
 import { UserContext } from "../../Contexts/UserContext";
 import { ProductList } from "../../Components/ProductList/ProductList";
 import { Link } from "react-router-dom";
@@ -47,7 +47,11 @@ export default function Loja() {
           <UserButtom/>
         </Link>
          <Link to="./carrinho">
-          <CartButtom/>
+          <CartButtomContainer>
+            <CartButtom>
+            </CartButtom>
+            <CartButtomCounter>{userState.carrinho.length}</CartButtomCounter>
+          </CartButtomContainer>
          </Link>
       </Header>
       <SearchInput/>
