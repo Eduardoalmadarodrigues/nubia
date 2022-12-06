@@ -10,7 +10,9 @@ export function reducer(state , action){
         case 'addToCart':
             return {...state, carrinho: state.carrinho.concat(action.toCart)};
         case 'removeFromCart':
-            return {...state , carrinho: state.carrinho.splice(action.index, 1)};
+            const carrinho2 = state.carrinho;
+            carrinho2.splice(action.index.index , 1);            
+            return {...state , carrinho: carrinho2 };
         case 'reset':
             return {
                 user: state.user,

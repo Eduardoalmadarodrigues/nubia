@@ -12,8 +12,8 @@ export const Wrapper = styled.div`
 
 export const ProductView = styled.div`
     display: flex;
-    width: 1200px;
-    height: 200px;
+    width: 100;
+    height: 100px;
     margin: 30px;
     background-color: lightblue;
 `;

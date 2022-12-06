@@ -7,7 +7,7 @@ export function Carrinho(){
     return (
         <Wrapper>
             {(userState.carrinho) ? userState.carrinho.map((produto , index)=><ProductView>{produto}
-            <button onClick={()=>userDispatch({type:'removeFromCart' , index:{index}})}>Remove</button>
+            <button onClick={()=>userDispatch({type:'removeFromCart' , index:{index}})}>{index}Remove</button>
             </ProductView>):<></>}
             <Link to="/">Retornar à Loja</Link>
         </Wrapper>
