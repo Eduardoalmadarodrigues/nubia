@@ -1,14 +1,10 @@
-import React, { useContext, useState, useEffect } from "react";
-import { Wrapper, Header, Logo, NavLink, ProductsWrapper, SearchInput,UserButtom, HomeButtom, MenuButton, CartButtom, CartButtomContainer, CartButtomCounter } from "./style";
-import { UserContext } from "../../Contexts/UserContext";
-import { ProductList } from "../../Components/ProductList/ProductList";
-import { Link } from "react-router-dom";
+import React, {  useState, useEffect } from "react";
+import { Wrapper, ProductsWrapper } from "./style";
 import { ProductSmallView } from "../../Components/ProductSmallView/ProductSmallView";
+import Header from "../../Components/Header";
 
 export default function Loja() {
-  const { userState } = useContext(UserContext);
   const [listaProdutos, setListaProdutos] = useState([{}]);
-  const [productsListVisibility, setProductsListVisibility] = useState(false);
 
   async function getListaProdutos() {
     const response = await fetch(
@@ -26,35 +22,7 @@ export default function Loja() {
 
   return (
     <Wrapper>
-      <Header>
-      <MenuButton/>
-        <Logo />
-        <NavLink
-          onMouseLeave={() => setProductsListVisibility(false)}
-          onMouseEnter={() => setProductsListVisibility(true)}
-        >
-          Products
-          <ProductList
-            onMouseLeave={() => setProductsListVisibility(false)}
-            isVisible={productsListVisibility}
-            products={listaProdutos}
-          ></ProductList>
-        </NavLink>
-        <Link to="/">
-          <HomeButtom/>
-        </Link>
-        <Link to="/login">
-          <UserButtom/>
-        </Link>
-         <Link to="./carrinho">
-          <CartButtomContainer>
-            <CartButtom>
-            </CartButtom>
-            <CartButtomCounter>{userState.carrinho.length}</CartButtomCounter>
-          </CartButtomContainer>
-         </Link>
-      </Header>
-      <SearchInput/>
+      <Header/>
       <ProductsWrapper>
         { (listaProdutos) ? listaProdutos.map((product, index) => (
           <ProductSmallView product={product} key={index} />
